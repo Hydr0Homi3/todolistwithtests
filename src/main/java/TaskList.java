@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class TaskList {
     private ArrayList<String> tasks;
@@ -24,8 +25,12 @@ public class TaskList {
             System.out.println("There are no tasks in the list.");
         } else {
             for (int i = 0; i < tasks.size(); i++) {
-                System.out.println((i+1) + ". " + tasks.get(i));
+                System.out.println((i + 1) + ". " + tasks.get(i));
             }
         }
+    }
+
+    public ArrayList<String> getTasks() {
+        return tasks;
     }
 }
