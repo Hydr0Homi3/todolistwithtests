@@ -26,36 +26,32 @@ public class Menu {
                 scanner.nextLine();
 
                 switch (choice) {
-                    case 1:
+                    case 1 -> {
                         System.out.println("Enter the task:");
                         String task = scanner.nextLine();
                         taskList.addTask(task);
                         System.out.println("Task added successfully.");
-                        break;
-                    case 2:
-                            taskList.showAllTasks();
-                            System.out.println("Enter the task number to delete:");
-                            int index = scanner.nextInt() - 1;
-                            taskList.deleteTask(index);
-                            System.out.println("Task deleted successfully.");
-
-                        break;
-                    case 3:
-                            taskList.showAllTasks();
-                            System.out.println("All tasks shown successfully.");
-
-                        break;
-                    case 4:
+                    }
+                    case 2 -> {
+                        taskList.showAllTasks();
+                        System.out.println("Enter the task number to delete:");
+                        int index = scanner.nextInt() - 1;
+                        taskList.deleteTask(index);
+                        System.out.println("Task deleted successfully.");
+                    }
+                    case 3 -> {
+                        taskList.showAllTasks();
+                        System.out.println("All tasks shown successfully.");
+                    }
+                    case 4 -> {
                         taskList.deleteAllTasks();
                         System.out.println("All tasks deleted successfully.");
-                        break;
-                    case 5:
+                    }
+                    case 5 -> {
                         exit = true;
                         System.out.println("Exiting program...");
-                        break;
-                    default:
-                        System.out.println("Invalid choice.");
-                        break;
+                    }
+                    default -> System.out.println("Invalid choice.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");

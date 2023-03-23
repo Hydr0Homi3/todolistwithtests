@@ -4,14 +4,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class TaskListTest {
 
+    private TaskList taskList = new TaskList();
+
     @Test
     public void shouldAddTaskToTaskList() {
-
-        // given
-        TaskList taskList = new TaskList();
 
         // when
         taskList.addTask("Groceries");
@@ -22,10 +23,17 @@ public class TaskListTest {
     }
 
     @Test
+    public void shouldThrowExceptionWhenEmptyTask() {
+
+        //when
+        // then
+        assertThrows(IllegalArgumentException.class, () -> taskList.addTask(""));
+    }
+
+    @Test
     public void shouldDeleteTaskFromTaskList() {
 
         // given
-        TaskList taskList = new TaskList();
         taskList.addTask("Groceries");
         taskList.addTask("Laundry");
         taskList.addTask("Clean house");
@@ -42,7 +50,6 @@ public class TaskListTest {
     public void shouldDeleteAllTasksFromTaskList() {
 
         // given
-        TaskList taskList = new TaskList();
         taskList.addTask("Groceries");
         taskList.addTask("Laundry");
         taskList.addTask("Clean house");
@@ -58,7 +65,6 @@ public class TaskListTest {
     public void shouldShowAllTasksInTaskList() {
 
         // given
-        TaskList taskList = new TaskList();
         taskList.addTask("Groceries");
         taskList.addTask("Laundry");
         taskList.addTask("Clean house");

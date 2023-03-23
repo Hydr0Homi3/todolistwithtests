@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class TaskList {
     private ArrayList<String> tasks;
@@ -9,6 +8,9 @@ public class TaskList {
     }
 
     public void addTask(String task) {
+        if (task.equals("")) {
+            throw new IllegalArgumentException("Cannot add empty task");
+        }
         tasks.add(task);
     }
 
